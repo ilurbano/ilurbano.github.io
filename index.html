@@ -10,63 +10,83 @@
     <title>Ivan Louise Urbano</title>
 </head>
 <body>
+    <div id="loadingMessage" style="text-align: center;">
+        <h1 style="margin-top: 16px;">Loading page. Please wait...</h1>
+    </div>
+
     <div id="introPage">
         <div class="mosaic-grid-container">
-            <div class="mosaic-card">
-            
-            </div>
-    
-            <div class="mosaic-card remove-mobile">
-                
-            </div>
-    
-            <div class="mosaic-card">
-                
-            </div>
-    
-            <div class="mosaic-card remove-mobile">
-                
-            </div>
-    
-            <div class="mosaic-card remove-mobile">
-                
-            </div>
-    
-            <div id="heroCard" class="mosaic-card center">
+            <a id="heroCard" class="mosaic-card center" href="javascript:explore()">
                 <div class="hero-content">
                     <h1 class="title">Ivan Louise Urbano</h1>
                     <h2 class="subtitle">2<sup>nd</sup> Year BSIT-MWA Student</h2>
-    
-                    <a href="javascript:explore()">&nbsp;&nbsp;Explore<span class="material-icons">chevron_right</span></a>
+                    <!-- <a href="javascript:explore()">&nbsp;&nbsp;Explore<span class="material-icons">chevron_right</span></a> -->
                 </div>
+                <h3 class="subtitle hover-only">Click this card to explore!</h3>
+            </a>
+
+            <div class="mosaic-card piggy">
+                <img class="picture" src="images/intro/piggy.png" alt="">
+                <h3 class="title">Piggy</h3>
             </div>
     
-            <div class="mosaic-card remove-mobile">
-                
+            <div class="mosaic-card hhh">
+                <img class="picture" src="images/intro/hhh.png" alt="">
+                <h3 class="title">High Horizon Hotel</h3>
             </div>
     
-            <div class="mosaic-card remove-mobile">
-                
+            <div class="mosaic-card countdown">
+                <img class="picture" src="images/intro/countdown.png" alt="">
+                <h3 class="title">New Year Countdown</h3>
             </div>
     
-            <div class="mosaic-card remove-mobile">
-                
+            <div class="mosaic-card pong">
+                <img class="picture" src="images/intro/pong.png" alt="">
+                <h3 class="title">Pong: Legends</h3>
             </div>
     
-            <div class="mosaic-card">
-                
+            <div class="mosaic-card awards">
+                <img class="picture" src="images/intro/eight.png" alt="">
+                <h3 class="title">Awards</h3>
             </div>
-    
-            <div class="mosaic-card remove-mobile">
-                
+
+            <div class="mosaic-card cooking">
+                <div class="picture"></div>
+                <h3 class="title">Food Lover</h3>
             </div>
-    
-            <div class="mosaic-card">
-                
+
+            <div class="mosaic-card gamer">
+                <div class="picture"></div>
+                <h3 class="title">Gamer</h3>
             </div>
-    
-            <div class="mosaic-card remove-mobile">
-                
+
+            <div class="mosaic-card programmer">
+                <div class="picture"></div>
+                <h3 class="title">Programmer</h3>
+            </div>
+
+            <div class="mosaic-card education">
+                <div class="picture-container">
+                    <img src="images/intro/vergon-elem.png" alt="">
+                    <img src="images/intro/lp-north-jhs.png" alt="">
+                    <img src="images/intro/hra-shs.png" alt="">
+                    <img src="images/intro/nu-univ.png" alt="">
+                </div>
+                <h3 class="title">Education</h3>
+            </div>
+
+            <div class="mosaic-card recent-award">
+                <img class="picture" src="images/awards/android-app-pitching.jpg" alt="">
+                <h3 class="title">Recent Award</h3>
+            </div>
+
+            <div class="mosaic-card programming-skills">
+                <div class="picture-container">
+                    <img src="images/intro/java.png" alt="">
+                    <img src="images/intro/android.png" alt="">
+                    <div class="web-dev"></div>
+                </div>
+                <h3 class="title">Programming Skills</h3>
             </div>
         </div>
     </div>
@@ -74,8 +94,8 @@
     <div id="mainPage">
         <div class="title-bar">
             <a id="expandMenu" href="javascript:toggleMenu()"><span class="material-icons">menu</span></a>
-            <a class="menu-item" href="index.html">Intro</a>
-            <a class="menu-item" href="index.html">Home</a>
+            <a class="menu-item" href="javascript:switchToIntroPage()">Intro</a>
+            <a class="menu-item" href="index.html?skip_intro=true">Home</a>
             <a class="menu-item" href="about.html">About</a>
             <a class="menu-item" href="projects.html">Projects</a>
             <a class="menu-item" href="contact.html">Contact</a>
@@ -117,6 +137,7 @@
                         </p>
                     </a>
                 </div>
+                <a class="cta-button" href="projects.html">More Projects</a>
             </div>
 
             <div class="short-about">
@@ -150,12 +171,13 @@
                         </ul>
                     </div>
                 </div>
+                <a class="cta-button" href="about.html">More About Me</a>
             </div>
         </div>
 
         <div class="interested">
             <h1>Interested?</h1>
-            <a href="contact.html">Contact Me</a>
+            <a class="cta-button" href="contact.html">Contact Me</a>
         </div>
 
         <p class="copyright">
