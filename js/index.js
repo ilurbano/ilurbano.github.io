@@ -1,51 +1,8 @@
 var menusVisible = false;
 
-function updateMenuItems() {
-    var menus = document.getElementsByClassName('menu-item');
-
-    for (var i = 0; i < menus.length; i++) {
-        var menu = menus[i];
-
-        if (menusVisible || window.innerWidth > 600) {
-            menu.style.display = 'inline-flex';
-        } else {
-            menu.style.display = 'none';
-        }
-    }
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
-
-function toggleMenu() {
-    menusVisible = !menusVisible;
-    updateMenuItems();
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    var query = window.location.search;
-    var params = new URLSearchParams(query);
-
-    if (params.has('skip_intro') && params.get('skip_intro') == 'true') {
-        switchToMainPage();
-    } else {
-        // animateIntro();
-    }
-});
-
-window.addEventListener('load', () => {
-    var loadingMessage = document.getElementById('loadingMessage');
-    loadingMessage.remove();
-
-    var query = window.location.search;
-    var params = new URLSearchParams(query);
-
-    if (!(params.has('skip_intro') && params.get('skip_intro') == 'true')) {
-        animateIntro();
-    }
-});
-
-window.addEventListener('resize', () => {
-    menusVisible = window.innerWidth > 600;
-    updateMenuItems();
-});
 
 async function animateIntro() {
     var introPage = document.getElementById('introPage');
@@ -146,6 +103,49 @@ async function switchToIntroPage() {
     animateIntro();
 }
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+function updateMenuItems() {
+    var menus = document.getElementsByClassName('menu-item');
+
+    for (var i = 0; i < menus.length; i++) {
+        var menu = menus[i];
+
+        if (menusVisible || window.innerWidth > 600) {
+            menu.style.display = 'inline-flex';
+        } else {
+            menu.style.display = 'none';
+        }
+    }
 }
+
+function toggleMenu() {
+    menusVisible = !menusVisible;
+    updateMenuItems();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    var query = window.location.search;
+    var params = new URLSearchParams(query);
+
+    if (params.has('skip_intro') && params.get('skip_intro') == 'true') {
+        switchToMainPage();
+    } else {
+        // animateIntro();
+    }
+});
+
+window.addEventListener('load', () => {
+    var loadingMessage = document.getElementById('loadingMessage');
+    loadingMessage.remove();
+
+    var query = window.location.search;
+    var params = new URLSearchParams(query);
+
+    if (!(params.has('skip_intro') && params.get('skip_intro') == 'true')) {
+        animateIntro();
+    }
+});
+
+window.addEventListener('resize', () => {
+    menusVisible = window.innerWidth > 600;
+    updateMenuItems();
+});
