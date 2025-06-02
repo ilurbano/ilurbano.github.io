@@ -16,6 +16,23 @@
     animation: zoom-entrance 1000ms cubic-bezier(0,.5,0,1) forwards;
 }
 
+@keyframes zoom-exit {
+    from {
+        opacity: 1;
+        transform: scale(100%);
+    }
+
+    to {
+        
+        opacity: 0;
+        transform: scale(200%);
+    }
+}
+
+.zoom-exit-animation {
+    animation: zoom-exit 300ms cubic-bezier(1,0,1,1) forwards;
+}
+
 @keyframes fade-out {
     from {
         opacity: 1;
@@ -23,7 +40,8 @@
 
     to {
         opacity: 0;
-        transform: translateY(32px);
+        /* transform: translateY(32px); */
+        transform: scale(50%);
     }
 }
 
@@ -49,7 +67,10 @@ body {
 /* Intro Page */
 
 #introPage {
+    width: 100vw;
+    height: 100vh;
     display: block;
+    overflow: hidden;
 }
 
 .mosaic-grid-container {
@@ -74,6 +95,10 @@ body {
     transition: 500ms cubic-bezier(0.2, 0.0, 0, 1.0);
 }
 
+.mosaic-card * {
+    transition: 500ms cubic-bezier(0.2, 0.0, 0, 1.0);
+}
+
 .mosaic-card.center {
     grid-column: 5 / span 8;
     grid-row: 5 / span 8;
@@ -83,6 +108,7 @@ body {
     border-radius: 0;
     background-color: white;
     transform: scale(210%);
+    opacity: 0;
     z-index: 100;
 }
 
@@ -102,16 +128,20 @@ body {
     grid-column: 1 / span 4;
     grid-row: 1 / span 12;
     padding: 16px;
+    gap: 16px;
 }
 
 .mosaic-card.piggy > .picture {
+    width: 100%;
+    height: 100%;
     overflow: hidden;
     object-fit: contain;
 }
 
 .mosaic-card.piggy > .title {
+    display: flexbox;
     margin: 0;
-    padding-top: 16px;
+    align-content: center;
     text-align: center;
 }
 
@@ -194,17 +224,19 @@ body {
     flex-direction: column;
     grid-column: 5 / span 2;
     grid-row: 1 / span 4;
+    gap: 16px;
     padding: 16px;
 }
 
 .mosaic-card.awards > .picture {
+    width: 100%;
+    height: 100%;
     overflow: hidden;
     object-fit: contain;
 }
 
 .mosaic-card.awards > .title {
     margin: 0;
-    padding-top: 16px;
     text-align: center;
 }
 
@@ -311,6 +343,7 @@ body {
 }
 
 .mosaic-card.education > .picture-container > * {
+    flex: 25%;
     overflow: hidden;
     object-fit: contain;
 }
@@ -401,7 +434,7 @@ body {
     transition: opacity 500ms cubic-bezier(0.2, 0.0, 0, 1.0);
 }
 
-#heroCard:hover > .subtitle.hover-only {
+#heroCard:hover > .click-guide {
     opacity: 1;
 }
 
@@ -440,11 +473,11 @@ body {
     transition: 500ms;
 }
 
-#heroCard > .subtitle.hover-only {
+#heroCard > .click-guide {
+    width: calc(100% - 32px);
     position: absolute;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    text-align: center;
     color: #ffffffe0;
     opacity: 0;
     transition: opacity 250ms;
@@ -485,7 +518,10 @@ body {
 /* Main Page */
 
 #mainPage {
+    width: 100vw;
+    height: 100vh;
     display: none;
+    overflow: auto;
 }
 
 #content {
@@ -674,10 +710,11 @@ body {
 }
 
 .short-about .profile-image {
-    width: 256px;
-    height: 256px;
+    width: 100%;
     aspect-ratio: 1/1;
-    border-radius: 100%;
+    border-radius: 32767px;
+    overflow: hidden;
+    object-fit: cover;
 }
 
 .short-about ul {
@@ -733,9 +770,98 @@ body {
 /* Media Queries */
 
 @media (hover: none) {
-    #heroCard > .subtitle.hover-only {
-    opacity: 1;
+    #heroCard > .click-guide {
+        opacity: 1;
+    }
 }
+
+@media (pointer: coarse) {
+    #heroCard > .click-guide {
+        opacity: 1;
+    }
+}
+
+@media (min-aspect-ratio: 401/500) and (max-aspect-ratio: 499/400) {
+    .mosaic-card.piggy, .mosaic-card.hhh, .mosaic-card.awards, .mosaic-card.programmer, .mosaic-card.cooking, .mosaic-card.gamer, .mosaic-card.pong, .mosaic-card.programming-skills, .mosaic-card.education, .mosaic-card.recent-award, .mosaic-card.countdown {
+        display: none;
+    }
+
+    #heroCard {
+        grid-column: 1 / span 16;
+        grid-row: 1 / span 16;
+    }
+}
+
+@media (min-aspect-ratio: 901/1600) and (max-aspect-ratio: 400/500) {
+    .mosaic-card.piggy, .mosaic-card.hhh, .mosaic-card.awards, .mosaic-card.programmer, .mosaic-card.cooking, .mosaic-card.gamer, .mosaic-card.pong {
+        display: none;
+    }
+
+    .mosaic-card.education {
+        grid-column: 7 / span 10;
+        grid-row: 1 / span 4;
+    }
+
+    .mosaic-card.programming-skills {
+        grid-column: 1 / span 8;
+        grid-row: 13 / span 4;
+    }
+
+    .mosaic-card.recent-award {
+        grid-column: 1 / span 6;
+        grid-row: 1 / span 4;
+    }
+
+    .mosaic-card.countdown {
+        grid-column: 9 / span 8;
+        grid-row: 13 / span 4;
+    }
+
+    #heroCard {
+        grid-column: 1 / span 16;
+        grid-row: 5 / span 8;
+    }
+
+}
+
+@media (max-aspect-ratio: 900/1600) {
+    .mosaic-card.hhh, .mosaic-card.awards, .mosaic-card.programmer, .mosaic-card.cooking, .mosaic-card.gamer, .mosaic-card.pong {
+        display: none;
+    }
+
+    .mosaic-card.piggy {
+        grid-column: 1 / span 6;
+        grid-row: 1 / span 5;
+    }
+
+    .mosaic-card.education {
+        grid-column: 7 / span 10;
+        grid-row: 1 / span 3;
+    }
+
+    .mosaic-card.programming-skills {
+        grid-column: 7 / span 10;
+        grid-row: 4 / span 2;
+    }
+
+    .mosaic-card.programming-skills > .title {
+        display: none;
+    }
+
+    .mosaic-card.mosaic-card.recent-award {
+        grid-column: 1 / span 8;
+        grid-row: 12 / span 5;
+    }
+
+    .mosaic-card.countdown {
+        grid-column: 9 / span 8;
+        grid-row: 12 / span 5;
+    }
+
+    #heroCard {
+        grid-column: 1 / span 16;
+        grid-row: 6 / span 6;
+    }
 }
 
 @media (min-width: 1600px) {
@@ -743,6 +869,16 @@ body {
         width: 1600px;
         margin-left: auto;
         margin-right: auto;
+    }
+}
+
+@media (max-width: 1200px) {
+    #heroCard > .hero-content > .title {
+        font-size: 3rem;
+    }
+
+    .mosaic-card h3 {
+        font-size: 1rem;
     }
 }
 
@@ -768,6 +904,10 @@ body {
     .short-about > .layout {
         flex-wrap: wrap;
     }
+
+    .short-about .profile-image {
+        width: 50%;
+    }
 }
 
 @media (max-width: 600px) {
@@ -783,6 +923,19 @@ body {
         display: none;
     }
 
+    #heroCard > .hero-content > .title {
+        font-size: 2rem;
+    }
+
+    #heroCard > .hero-content > .subtitle {
+        margin: 0;
+        font-size: 1rem;
+    }
+
+    #heroCard > .click-guide {
+        font-size: 0.75rem;
+    }
+
     .spotlight {
         padding: 0;
         padding-top: 32px;
@@ -790,5 +943,9 @@ body {
 
     .spotlight-item {
         flex: 100%;
+    }
+
+    .short-about .profile-image {
+        width: 75%;
     }
 }

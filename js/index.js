@@ -1,3 +1,24 @@
+var menusVisible = false;
+
+function updateMenuItems() {
+    var menus = document.getElementsByClassName('menu-item');
+
+    for (var i = 0; i < menus.length; i++) {
+        var menu = menus[i];
+
+        if (menusVisible || window.innerWidth > 600) {
+            menu.style.display = 'inline-flex';
+        } else {
+            menu.style.display = 'none';
+        }
+    }
+}
+
+function toggleMenu() {
+    menusVisible = !menusVisible;
+    updateMenuItems();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     var query = window.location.search;
     var params = new URLSearchParams(query);
@@ -21,6 +42,11 @@ window.addEventListener('load', () => {
     }
 });
 
+window.addEventListener('resize', () => {
+    menusVisible = window.innerWidth > 600;
+    updateMenuItems();
+});
+
 async function animateIntro() {
     var introPage = document.getElementById('introPage');
     var cards = document.getElementsByClassName('mosaic-card');
@@ -29,7 +55,7 @@ async function animateIntro() {
     heroCard.style.opacity = 1;
     introPage.style.opacity = 0;
 
-    await sleep(200);
+    await sleep(100);
 
     introPage.classList.add('zoom-entrance-animation');
 
@@ -53,12 +79,12 @@ async function explore() {
 
     history.pushState({path: url.href}, '', url.href);
 
-    var heroCard = document.getElementById('heroCard');
-    heroCard.classList.add('full');
+    var introPage = document.getElementById('introPage');
+    introPage.classList.add('zoom-exit-animation');
 
-    await sleep(500);
+    await sleep(400);
 
-    heroCard.classList.remove('full');
+    introPage.classList.remove('zoom-exit-animation');
 
     switchToMainPage();
 }
@@ -69,13 +95,14 @@ async function switchToMainPage() {
 
     introPage.style.display = 'none';
     mainPage.style.display = 'block';
+    mainPage.scrollTop = 0;
 
     mainPage.classList.add('slide-up-animation');
 
     await sleep(500);
 
     mainPage.classList.remove('slide-up-animation');
-    document.body.style.overflow = 'auto';
+    // document.body.style.overflow = 'auto';
 
     var cards = document.getElementsByClassName('mosaic-card');
 
@@ -90,6 +117,9 @@ async function switchToMainPage() {
 }
 
 async function switchToIntroPage() {
+    menusVisible = false;
+    updateMenuItems();
+
     var url = new URL(window.location.href);
     var params = url.searchParams;
 
@@ -103,13 +133,15 @@ async function switchToIntroPage() {
 
     mainPage.classList.add('fade-out-animation');
 
-    await sleep(500);
+    await sleep(300);
+
+    // window.location.href = "index.html";
 
     introPage.style.display = 'block';
     mainPage.style.display = 'none';
 
     mainPage.classList.remove('fade-out-animation');
-    document.body.style.overflow = 'hidden';
+    // document.body.style.overflow = 'hidden';
 
     animateIntro();
 }
