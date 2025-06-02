@@ -23,7 +23,6 @@
     }
 
     to {
-        
         opacity: 0;
         transform: scale(200%);
     }
@@ -42,7 +41,6 @@
 
     --mosaic-card-radius: 16px;
 
-    --color-on-hero-card: #f0f0f0;
     --color-on-full-image-card: #f0f0f0;
     --color-on-spotlight-item: #f0f0f0;
 
@@ -54,10 +52,6 @@
 
     --color-cta-button-background: #03A9F4;
     --color-cta-button-on-background: #ffffff;
-}
-
-body {
-    overflow: hidden;
 }
 
 /* Elements */
@@ -144,12 +138,14 @@ body {
 #heroCard .title {
     margin: 0;
     font-size: 4rem;
+    text-align: center;
 }
 
 #heroCard .subtitle {
     margin: 0;
     font-size: 2rem;
     color: color-mix(in srgb, var(--color-on-hero-card) 90%, transparent);
+    text-align: center;
 }
 
 #heroCard .click-guide {
@@ -487,52 +483,10 @@ body {
 
 #mainPage {
     display: none;
-    width: 100vw;
-    height: 100vh;
-    overflow: auto;
 }
 
 #content {
     background: var(--color-background);
-}
-
-/* Hero */
-
-.hero {
-    height: 60vh;
-    padding: 16px;
-    padding-top: 0;
-}
-
-.hero .card {
-    display: flex;
-    height: 100%;
-
-    border-radius: 16px;
-
-    background-image: url(../images/center-card.png);
-    background-size: cover;
-    background-position: center;
-
-    padding: 16px;
-    flex-direction: column;
-    gap: 16px;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-on-hero-card);
-}
-
-.hero .title {
-    margin: 0;
-    font-size: 4rem;
-    text-align: center;
-}
-
-.hero .subtitle {
-    margin: 0;
-    font-size: 2rem;
-    text-align: center;
-    color: color-mix(in srgb, var(--color-on-hero-card) 90%, transparent);
 }
 
 /* Spotlight */
@@ -545,8 +499,14 @@ body {
 .spotlight .grid {
     display: flex;
     padding: 16px;
+    padding-bottom: 32px;
     gap: 16px;
     justify-content: center;
+}
+
+.spotlight .title {
+    margin-top: 0;
+    margin-bottom: 16px;
 }
 
 .spotlight-item {
@@ -829,14 +789,6 @@ body {
     #heroCard {
         grid-column: 1 / span 16;
         grid-row: 6 / span 6;
-    }
-}
-
-@media (min-width: 1600px) {
-    #content {
-        width: 1600px;
-        margin-left: auto;
-        margin-right: auto;
     }
 }
 

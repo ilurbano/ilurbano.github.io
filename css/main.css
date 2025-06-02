@@ -10,6 +10,9 @@
     --color-card-background: #fcfcfc;
     --color-on-card-background: #101010;
 
+    --color-hero-card: #101010;
+    --color-on-hero-card: #f0f0f0;
+
     --color-copyright-backround: #101010;
     --color-on-copyright-backround: #f0f0f0;
 }
@@ -30,6 +33,22 @@
   
 .zoom-in-fade-in-animation {
     animation: zoom-in-fade-in 500ms cubic-bezier(0,.5,0,1) forwards;
+}
+
+@keyframes zoom-in-fade-out {
+    from {
+        opacity: 1;
+        transform: scale(100%);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(200%);
+    }
+}
+
+.zoom-in-fade-out-animation {
+    animation: zoom-in-fade-out 300ms cubic-bezier(1,0,1,1) forwards;
 }
 
 @keyframes zoom-out-fade-out {
@@ -54,12 +73,37 @@ body {
     background: var(--color-background);
     font-family: sans-serif;
     color: var(--color-on-background);
+    overflow: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: fredoka-one-regular;
     font-weight: normal;
 }
+
+/* Loading Message */
+
+#loadingMessage {
+    position: absolute; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    
+    opacity: 0; 
+    text-align: center; 
+    
+    transition: 300ms;
+}
+
+/* Main Page */
+
+#mainPage {
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    overflow: hidden auto;
+}
+
+/* Title Bar */
 
 .title-bar {
     display: flex;
@@ -104,12 +148,63 @@ h1, h2, h3, h4, h5, h6 {
     background: color-mix(in srgb, var(--color-on-title-bar-background) 20%, transparent);
 }
 
+/* Hero */
+
+.hero {
+    height: 60vh;
+    padding: 16px;
+    padding-top: 0;
+}
+
+.hero .card {
+    display: flex;
+    height: calc(100% - 32px);
+
+    border-radius: 16px;
+
+    background-image: url(../images/center-card.png);
+    background-size: cover;
+    background-position: center;
+
+    padding: 16px;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-on-hero-card);
+}
+
+.hero .title {
+    margin: 0;
+    font-size: 4rem;
+    text-align: center;
+}
+
+.hero .subtitle {
+    margin: 0;
+    font-size: 2rem;
+    text-align: center;
+    color: color-mix(in srgb, var(--color-on-hero-card) 90%, transparent);
+}
+
+/* Copyright */
+
 .copyright {
     margin: 0;
     background: var(--color-copyright-backround);
     padding: 8px;
     text-align: center;
     color: var(--color-on-copyright-backround);
+}
+
+/* Media Queries */
+
+@media (min-width: 1600px) {
+    #content {
+        width: 1600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 @media (min-width: 600px) {

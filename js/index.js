@@ -6,8 +6,6 @@ async function animateIntro() {
     heroCard.style.opacity = 1;
     introPage.style.opacity = 0;
 
-    await sleep(100);
-
     introPage.classList.add('zoom-entrance-animation');
 
     for (i = 0; i < cards.length; i++) {
@@ -15,13 +13,13 @@ async function animateIntro() {
         
         if (card.id == 'heroCard') continue;
 
-        await sleep(33);
+        await sleep(40);
 
         card.classList.add('zoom-entrance-animation');
     }
 }
 
-async function explore() {
+function explore() {
     var url = new URL(window.location.href);
     var params = url.searchParams;
 
@@ -33,14 +31,13 @@ async function explore() {
     var introPage = document.getElementById('introPage');
     introPage.classList.add('zoom-exit-animation');
 
-    await sleep(400);
-
-    introPage.classList.remove('zoom-exit-animation');
-
-    switchToMainPage();
+    introPage.addEventListener('animationend', () => {
+        introPage.classList.remove('zoom-exit-animation');
+        switchToMainPage();
+    }, { once: true });
 }
 
-async function switchToMainPage() {
+function switchToMainPage() {
     var introPage = document.getElementById('introPage');
     var mainPage = document.getElementById('mainPage');
 
@@ -50,23 +47,24 @@ async function switchToMainPage() {
 
     mainPage.classList.add('zoom-in-fade-in-animation');
 
-    await sleep(500);
+    mainPage.addEventListener('animationend', () => {
+        mainPage.classList.remove('zoom-in-fade-in-animation');
+        mainPage.style.opacity = 1;
 
-    mainPage.classList.remove('zoom-in-fade-in-animation');
+        var cards = document.getElementsByClassName('mosaic-card');
 
-    var cards = document.getElementsByClassName('mosaic-card');
+        introPage.classList.remove('zoom-entrance-animation');
+        for (i = 0; i < cards.length; i++) {
+            var card = cards[i];
+            
+            if (card.id == 'heroCard') continue;
 
-    introPage.classList.remove('zoom-entrance-animation');
-    for (i = 0; i < cards.length; i++) {
-        var card = cards[i];
-        
-        if (card.id == 'heroCard') continue;
-
-        card.classList.remove('zoom-entrance-animation');
-    }
+            card.classList.remove('zoom-entrance-animation');
+        }
+    }, { once: true });
 }
 
-async function switchToIntroPage() {
+function switchToIntro() {
     menusVisible = false;
     updateMenuItems();
 
@@ -83,14 +81,15 @@ async function switchToIntroPage() {
 
     mainPage.classList.add('zoom-out-fade-out-animation');
 
-    await sleep(300);
+    mainPage.addEventListener('animationend', () => {
+        introPage.style.display = 'block';
+        mainPage.style.display = 'none';
+        mainPage.style.opacity = 0;
 
-    introPage.style.display = 'block';
-    mainPage.style.display = 'none';
+        mainPage.classList.remove('zoom-out-fade-out-animation');
 
-    mainPage.classList.remove('zoom-out-fade-out-animation');
-
-    animateIntro();
+        animateIntro();
+    }, { once: true });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -106,7 +105,9 @@ window.addEventListener('load', () => {
     var query = window.location.search;
     var params = new URLSearchParams(query);
 
-    if (!(params.has('skip_intro') && params.get('skip_intro') == 'true')) {
+    if (params.has('skip_intro') && params.get('skip_intro') == 'true') {
+        switchToMainPage();
+    } else {
         animateIntro();
     }
 });

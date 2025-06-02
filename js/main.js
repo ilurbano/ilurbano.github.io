@@ -23,6 +23,66 @@ function toggleMenu() {
     updateMenuItems();
 }
 
+function animateEntrance() {
+    var mainPage = document.getElementById('mainPage');
+
+    mainPage.classList.add('zoom-in-fade-in-animation');
+
+    mainPage.addEventListener('animationend', () => {
+        mainPage.classList.remove('zoom-in-fade-in-animation');
+        mainPage.style.opacity = 1;
+    }, { once: true });
+}
+
+function animateExit() {
+    var mainPage = document.getElementById('mainPage');
+    mainPage.classList.add('zoom-in-fade-out-animation');
+}
+
+function animateLoadingMessage() {
+    var loadingMessage = document.getElementById('loadingMessage');
+
+    loadingMessage.addEventListener('animationend', () => {
+        loadingMessage.classList.remove('fade-in-animation');
+        loadingMessage.style.opacity = 1;
+    }, { once: true });
+}
+
+async function intro() {
+    var mainPage = document.getElementById('mainPage');
+    mainPage.classList.add('zoom-out-fade-out-animation');
+    await sleep(300);
+    window.location.href = 'index.html';
+}
+
+async function home() {
+    animateExit();
+    await sleep(300);
+    window.location.href = 'index.html?skip_intro=true';
+}
+
+async function about() {
+    animateExit();
+    await sleep(300);
+    window.location.href = 'about.html';
+}
+
+async function projects() {
+    animateExit();
+    await sleep(300);
+    window.location.href = 'projects.html';
+}
+
+async function contact() {
+    animateExit();
+    await sleep(300);
+    window.location.href = 'contact.html';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    animateLoadingMessage();
+});
+
 window.addEventListener('load', () => {
     var loadingMessage = document.getElementById('loadingMessage');
     loadingMessage.remove();

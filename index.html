@@ -2,16 +2,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/fredoka-one-regular.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/index.css">
+
     <script src="js/main.js"></script>
     <script src="js/index.js"></script>
+
     <title>Ivan Louise Urbano</title>
 </head>
 <body>
-    <div id="loadingMessage" style="text-align: center; position: absolute; left: 50%; transform: translateX(-50%);">
+    <div id="loadingMessage">
         <h1>Loading page. Please wait...</h1>
     </div>
 
@@ -92,11 +95,12 @@
     <div id="mainPage">
         <div class="title-bar">
             <a id="expandMenu" href="javascript:toggleMenu()"><span class="material-icons">menu</span></a>
-            <a class="menu-item" href="javascript:switchToIntroPage()">Intro</a>
-            <a class="menu-item" href="index.html?skip_intro=true">Home</a>
-            <a class="menu-item" href="about.html">About</a>
-            <a class="menu-item" href="projects.html">Projects</a>
-            <a class="menu-item" href="contact.html">Contact</a>
+
+            <a class="menu-item" href="javascript:switchToIntro()">Intro</a>
+            <a class="menu-item" href="#">Home</a>
+            <a class="menu-item" href="javascript:about()">About</a>
+            <a class="menu-item" href="javascript:projects()">Projects</a>
+            <a class="menu-item" href="javascript:contact()">Contact</a>
         </div>
 
         <div id="content">
@@ -169,7 +173,7 @@
                         </ul>
                     </div>
                 </div>
-                <a class="cta-button" href="about.html">More About Me</a>
+                <a class="cta-button" href="javascript:about()">More About Me</a>
             </div>
         </div>
 
