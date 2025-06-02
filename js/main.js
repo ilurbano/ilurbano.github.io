@@ -23,6 +23,11 @@ function toggleMenu() {
     updateMenuItems();
 }
 
+function hideMenu() {
+    menusVisible = false;
+    updateMenuItems();
+}
+
 function animateEntrance() {
     var mainPage = document.getElementById('mainPage');
 
@@ -49,6 +54,7 @@ function animateLoadingMessage() {
 }
 
 async function intro() {
+    hideMenu();
     var mainPage = document.getElementById('mainPage');
     mainPage.classList.add('zoom-out-fade-out-animation');
     await sleep(300);
@@ -56,24 +62,28 @@ async function intro() {
 }
 
 async function home() {
+    hideMenu();
     animateExit();
     await sleep(300);
     window.location.href = 'index.html?skip_intro=true';
 }
 
 async function about() {
+    hideMenu();
     animateExit();
     await sleep(300);
     window.location.href = 'about.html';
 }
 
 async function projects() {
+    hideMenu();
     animateExit();
     await sleep(300);
     window.location.href = 'projects.html';
 }
 
 async function contact() {
+    hideMenu();
     animateExit();
     await sleep(300);
     window.location.href = 'contact.html';
