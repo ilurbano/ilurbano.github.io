@@ -86,6 +86,16 @@ async function contact() {
     window.location.href = 'contact.html';
 }
 
+function scrollToTop() {
+    hideMenu();
+    var mainPage = document.getElementById('mainPage');
+    mainPage.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     animateLoadingMessage();
 });
