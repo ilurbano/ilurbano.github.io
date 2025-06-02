@@ -44,13 +44,10 @@ function animateExit() {
     mainPage.classList.add('zoom-in-fade-out-animation');
 }
 
-function animateLoadingMessage() {
+async function animateLoadingMessage() {
     var loadingMessage = document.getElementById('loadingMessage');
-
-    loadingMessage.addEventListener('animationend', () => {
-        loadingMessage.classList.remove('fade-in-animation');
-        loadingMessage.style.opacity = 1;
-    }, { once: true });
+    await sleep(3000);
+    loadingMessage.style.opacity = 1;
 }
 
 async function intro() {
