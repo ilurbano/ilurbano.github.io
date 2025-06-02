@@ -33,22 +33,6 @@
     animation: zoom-exit 300ms cubic-bezier(1,0,1,1) forwards;
 }
 
-@keyframes fade-out {
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0;
-        /* transform: translateY(32px); */
-        transform: scale(50%);
-    }
-}
-
-.fade-out-animation {
-    animation: fade-out 300ms cubic-bezier(1,0,1,1) forwards;
-}
-
 /* Root Page */
 
 :root {

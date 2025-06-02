@@ -97,11 +97,11 @@ async function switchToMainPage() {
     mainPage.style.display = 'block';
     mainPage.scrollTop = 0;
 
-    mainPage.classList.add('slide-up-animation');
+    mainPage.classList.add('zoom-in-fade-in-animation');
 
     await sleep(500);
 
-    mainPage.classList.remove('slide-up-animation');
+    mainPage.classList.remove('zoom-in-fade-in-animation');
     // document.body.style.overflow = 'auto';
 
     var cards = document.getElementsByClassName('mosaic-card');
@@ -131,7 +131,7 @@ async function switchToIntroPage() {
     var introPage = document.getElementById('introPage');
     var mainPage = document.getElementById('mainPage');
 
-    mainPage.classList.add('fade-out-animation');
+    mainPage.classList.add('zoom-out-fade-out-animation');
 
     await sleep(300);
 
@@ -140,7 +140,7 @@ async function switchToIntroPage() {
     introPage.style.display = 'block';
     mainPage.style.display = 'none';
 
-    mainPage.classList.remove('fade-out-animation');
+    mainPage.classList.remove('zoom-out-fade-out-animation');
     // document.body.style.overflow = 'hidden';
 
     animateIntro();
