@@ -172,16 +172,19 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     color: var(--color-on-hero-card);
+    overflow: hidden;
 }
 
 .hero .title {
     margin: 0;
+    z-index: 1;
     font-size: 4rem;
     text-align: center;
 }
 
 .hero .subtitle {
     margin: 0;
+    z-index: 1;
     font-size: 2rem;
     text-align: center;
     color: color-mix(in srgb, var(--color-on-hero-card) 90%, transparent);
