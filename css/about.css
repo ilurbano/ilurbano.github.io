@@ -1,0 +1,215 @@
+:root {
+    --color-chip-background: #e4e4e4;
+    --color-on-chip-background: #101010;
+
+    --color-timeline: #69947c;
+}
+
+/* Hero */
+
+.hero {
+    height: 40vh;
+}
+
+.hero .card {
+    position: relative;
+
+    background-image: url(../images/center-card-2.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.hero .card::before {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+
+    content: '';
+    backdrop-filter: brightness(75%);
+}
+
+/* About Section */
+
+.about-section {
+    padding: 32px;
+    padding-left: 128px;
+    padding-right: 128px;
+    text-align: center;
+}
+
+.about-section > div > .profile-image {
+    display: none;
+}
+
+.about-section .layout {
+    display: flex;
+}
+
+.about-section .left {
+    display: flex;
+    flex: 30%;
+    padding: 32px;
+    padding-top: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-section .profile-image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 32767px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.about-section .right {
+    flex: 70%;
+    padding: 32px;
+    padding-top: 0;
+    flex-direction: column;
+    justify-content: center;
+    text-align: justify;
+}
+
+.about-section .right > *:first-child {
+    margin-top: 0;
+}
+
+.about-section .right > *:last-child {
+    margin-bottom: 0;
+}
+
+.about-section .chips {
+    padding: 0;
+    list-style-type: none;
+    text-align: start;
+}
+
+.about-section .chips > li {
+    display: inline-block;
+
+    margin: 0;
+    margin-top: 4px;
+
+    border-radius: 32767px;
+    background: var(--color-chip-background);
+    padding: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-weight: bold;
+    color: var(--color-on-chip-background);
+}
+
+.about-section .chips p {
+    margin: 0;
+}
+
+/* Educational Background */
+
+.educational-background {
+    padding: 32px;
+    text-align: center;
+}
+
+.educational-background .layout {
+    display: flex;
+    padding-left: calc(50% - (128px + 16px));
+    flex-direction: column;
+    align-items: center;
+}
+
+.educational-background .timeline-row {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    min-height: 192px;
+    gap: 16px;
+}
+
+.educational-background .timeline-row.start .line-top {
+    visibility: hidden;
+}
+
+.educational-background .timeline-row.end .line-bottom {
+    visibility: hidden;
+}
+
+.educational-background .timeline-row .school-logo {
+    width: 128px;
+    object-fit: contain;
+}
+
+.educational-background .timeline-row > .graph {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.educational-background .timeline-row .stop-point {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--color-timeline);
+    flex-shrink: 0;
+}
+
+.educational-background .timeline-row .line-top {
+    width: 4px;
+    flex: 1 1 auto;
+    background: var(--color-timeline);
+    max-height: calc(0.83em * 2);
+}
+
+.educational-background .timeline-row .line-bottom {
+    width: 4px;
+    flex: 1 1 auto;
+    background: var(--color-timeline);
+    min-height: 16px;
+}
+
+.educational-background .timeline-row .texts {
+    flex: 1 1 0;
+    text-align: start;
+}
+
+@media (min-width: 1201px) {
+    .about-section .title {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 1200px) {
+    .about-section > div > .profile-image {
+        display: block;
+        width: 50%;
+    }
+
+    .about-section .left {
+        display: none;
+    }
+}
+
+@media (max-width: 840px) {
+    .about-section {
+        padding-left: 32;
+        padding-right: 32;
+    }
+
+    .about-section .right {
+        padding: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-section > div > .profile-image {
+        width: 75%;
+    }
+    
+    .educational-background .layout {
+        padding-left: calc(50% - (128px + 22px));
+    }
+}
