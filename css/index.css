@@ -610,7 +610,7 @@
 
 .short-about .left {
     display: flex;
-    flex: 40%;
+    flex: 10%;
     padding: 32px;
     padding-top: 0;
     justify-content: center;
@@ -831,6 +831,10 @@
 
     .short-about .layout {
         flex-wrap: wrap;
+    }
+
+    .short-about .left {
+        flex: 50%;
     }
 
     .short-about .profile-image {
