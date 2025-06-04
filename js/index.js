@@ -45,10 +45,10 @@ function switchToMainPage() {
     mainPage.style.display = 'block';
     mainPage.scrollTop = 0;
 
-    mainPage.classList.add('zoom-in-fade-in-animation');
+    mainPage.classList.add('slide-up-fade-in-animation');
 
     mainPage.addEventListener('animationend', () => {
-        mainPage.classList.remove('zoom-in-fade-in-animation');
+        mainPage.classList.remove('slide-up-fade-in-animation');
         mainPage.style.opacity = 1;
 
         var cards = document.getElementsByClassName('mosaic-card');
@@ -79,14 +79,14 @@ function switchToIntro() {
     var introPage = document.getElementById('introPage');
     var mainPage = document.getElementById('mainPage');
 
-    mainPage.classList.add('zoom-out-fade-out-animation');
+    mainPage.classList.add('slide-down-fade-out-animation');
 
     mainPage.addEventListener('animationend', () => {
         introPage.style.display = 'block';
         mainPage.style.display = 'none';
         mainPage.style.opacity = 0;
 
-        mainPage.classList.remove('zoom-out-fade-out-animation');
+        mainPage.classList.remove('slide-down-fade-out-animation');
 
         animateIntro();
     }, { once: true });

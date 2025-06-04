@@ -31,17 +31,17 @@ function hideMenu() {
 function animateEntrance() {
     var mainPage = document.getElementById('mainPage');
 
-    mainPage.classList.add('zoom-in-fade-in-animation');
+    mainPage.classList.add('slide-up-fade-in-animation');
 
     mainPage.addEventListener('animationend', () => {
-        mainPage.classList.remove('zoom-in-fade-in-animation');
+        mainPage.classList.remove('slide-up-fade-in-animation');
         mainPage.style.opacity = 1;
     }, { once: true });
 }
 
 function animateExit() {
     var mainPage = document.getElementById('mainPage');
-    mainPage.classList.add('zoom-in-fade-out-animation');
+    mainPage.classList.add('slide-down-fade-out-animation');
 }
 
 async function animateLoadingMessage() {
@@ -53,7 +53,7 @@ async function animateLoadingMessage() {
 async function intro() {
     hideMenu();
     var mainPage = document.getElementById('mainPage');
-    mainPage.classList.add('zoom-out-fade-out-animation');
+    mainPage.classList.add('slide-down-fade-out-animation');
     await sleep(300);
     window.location.href = 'index.html';
 }
