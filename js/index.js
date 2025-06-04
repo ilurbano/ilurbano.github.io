@@ -43,7 +43,6 @@ function switchToMainPage() {
 
     introPage.style.display = 'none';
     mainPage.style.display = 'block';
-    mainPage.scrollTop = 0;
 
     mainPage.classList.add('slide-up-fade-in-animation');
 
@@ -85,6 +84,7 @@ function switchToIntro() {
         introPage.style.display = 'block';
         mainPage.style.display = 'none';
         mainPage.style.opacity = 0;
+        mainPage.scrollTop = 0;
 
         mainPage.classList.remove('slide-down-fade-out-animation');
 
