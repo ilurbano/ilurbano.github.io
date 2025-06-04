@@ -73,7 +73,7 @@ body {
     background: var(--color-background);
     font-family: sans-serif;
     color: var(--color-on-background);
-    overflow: hidden;
+    overflow: hidden auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -98,9 +98,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #mainPage {
     width: 100vw;
-    height: 100vh;
     opacity: 0;
-    overflow: hidden auto;
 }
 
 /* Title Bar */
