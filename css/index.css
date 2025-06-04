@@ -46,26 +46,6 @@
 
     --color-chip-background: #e4e4e4;
     --color-on-chip-background: #101010;
-
-    --color-interested-background: #101010;
-    --color-on-interested-background: #f0f0f0;
-
-    --color-cta-button-background: #03A9F4;
-    --color-cta-button-on-background: #ffffff;
-}
-
-/* Elements */
-
-.cta-button {
-    display: inline-block;
-
-    border-radius: 32767px;
-    background: var(--color-cta-button-background);
-    padding: 1.25rem;
-    
-    text-decoration: none;
-    font-size: 1.25rem;
-    color: var(--color-cta-button-on-background);
 }
 
 /* Intro Page */
@@ -676,23 +656,6 @@
 
 .short-about .chips p {
     margin: 0;
-}
-
-/* Interested Call to Action */
-
-.interested {
-    background: var(--color-interested-background);
-    padding: 32px;
-    text-align: center;
-    color: var(--color-on-interested-background);
-}
-
-.interested > *:first-child {
-    margin-top: 0;
-}
-
-.interested > *:last-child {
-    margin-bottom: 0;
 }
 
 /* Media Queries */

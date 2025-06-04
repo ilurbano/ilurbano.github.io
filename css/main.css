@@ -13,6 +13,12 @@
     --color-hero-card: #101010;
     --color-on-hero-card: #f0f0f0;
 
+    --color-cta-button-background: #03A9F4;
+    --color-cta-button-on-background: #ffffff;
+
+    --color-interested-background: #101010;
+    --color-on-interested-background: #f0f0f0;
+
     --color-copyright-backround: #101010;
     --color-on-copyright-backround: #f0f0f0;
 }
@@ -218,6 +224,38 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 2rem;
     text-align: center;
     color: color-mix(in srgb, var(--color-on-hero-card) 90%, transparent);
+}
+
+/* Call to Action Button */
+
+.cta-button {
+    display: inline-block;
+
+    border-radius: 32767px;
+    background: var(--color-cta-button-background);
+    padding: 1.25rem;
+    
+    text-decoration: none;
+    font-size: 1.25rem;
+    color: var(--color-cta-button-on-background);
+}
+
+
+/* Interested Call to Action */
+
+.interested {
+    background: var(--color-interested-background);
+    padding: 32px;
+    text-align: center;
+    color: var(--color-on-interested-background);
+}
+
+.interested > *:first-child {
+    margin-top: 0;
+}
+
+.interested > *:last-child {
+    margin-bottom: 0;
 }
 
 /* Copyright */
