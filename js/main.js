@@ -88,7 +88,7 @@ async function contact() {
 
 function scrollToTop() {
     hideMenu();
-    var mainPage = document.getElementById('mainPage');
+    var mainPage = document.body;
     mainPage.scroll({
         top: 0,
         left: 0,
