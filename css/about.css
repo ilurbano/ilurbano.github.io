@@ -176,6 +176,75 @@
     text-align: start;
 }
 
+/* Awards */
+
+.awards {
+    padding: 32px;
+}
+
+.awards img {
+    height: 304px;
+    object-fit: cover;
+    transition: 300ms;
+}
+
+.awards .title {
+    margin-top: 0;
+}
+
+.awards .title, .awards .subtitle {
+    text-align: center;
+}
+
+.awards .grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.awards .grid-item {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.awards .grid-item .description {
+    margin: 16px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(calc(-50% - 16px));
+
+    opacity: 0;
+    color: white;
+
+    transition: 300ms;
+}
+
+.awards .grid-item .description > *:first-child {
+    margin-top: 0;
+}
+
+.awards .grid-item .description > *:last-child {
+    margin-bottom: 0;
+}
+
+.awards .grid-item:hover img, .awards .grid-item:focus img {
+    scale: 110%;
+    filter: brightness(70%) blur(16px);
+}
+
+.awards .grid-item:hover .description, .awards .grid-item:focus .description {
+    transform: translateY(0);
+
+    opacity: 1;
+}
+
+.awards .grid.dl img {
+    aspect-ratio: 4 / 3;
+}
+
 @media (min-width: 1201px) {
     .about-section .title {
         margin-top: 0;
@@ -190,6 +259,10 @@
 
     .about-section .left {
         display: none;
+    }
+
+    .awards img {
+        height: 224px;
     }
 }
 
@@ -211,5 +284,10 @@
     
     .educational-background .layout {
         padding-left: calc(50% - (128px + 22px));
+    }
+
+    .awards img {
+        width: 100%;
+        height: auto;
     }
 }
