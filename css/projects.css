@@ -1,0 +1,141 @@
+:root {
+    --color-chip-background: #e4e4e4;
+    --color-on-chip-background: #101010;
+    --color-chip-active-background: #4CAF50;
+    --color-on-chip-active-background: #f0f0f0;
+
+    --color-timeline: #69947c;
+}
+
+.hero {
+    height: 40vh;
+}
+
+.project {
+    padding: 32px;
+    padding-left: 128px;
+    padding-right: 128px;
+    text-align: justify;
+}
+
+.project .layout {
+    display: flex;
+    flex-direction: row;
+    gap: 64px;
+    justify-content: center;
+}
+
+.project .layout.reverse {
+    flex-direction: row-reverse;
+}
+
+.picture {
+    text-align: center;
+}
+
+.project .texts > *:first-child {
+    margin-top: 0;
+}
+
+.project .texts > *:last-child {
+    margin-bottom: 0;
+}
+
+.project .statuses {
+    vertical-align: calc(0.5em - (0.5rem + 0.125rem));
+}
+
+.project .statuses ul {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    list-style-type: none;
+    align-items: center;
+    gap: 0.25em;
+}
+
+.project .status {
+    margin: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-radius: 32767px;
+    background: var(--color-chip-background);
+    padding: 0.25em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    font-family: sans-serif;
+    font-size: 1rem;
+    color: var(--color-on-chip-background);
+}
+
+.project .status.active {
+    background: var(--color-chip-active-background);
+    color: var(--color-on-chip-active-background);
+}
+
+.project .texts h1, .project .texts h2, .project .texts h3, .project .texts h4, .project .texts h5, .project .texts h6 {
+    text-align: start;
+}
+
+.project .app-picture {
+    width: 256px;
+    border-radius: 16px;
+    object-fit: contain;
+    overflow: hidden;
+}
+
+.project.countdown .app-picture, .project.hhh .app-picture, .project.pong .app-picture, .project.portfolio .app-picture {
+    width: 512px;
+}
+
+.project .action-buttons {
+    display: flex; 
+    margin-top: 32px;
+    margin-bottom: 32px;
+    flex-wrap: wrap; 
+    gap: 16px;
+}
+
+@media (max-width: 1200px) {
+    .project .layout {
+        flex-wrap: wrap;
+        gap: 32px;
+    }
+
+    .project .action-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 840px) {
+    
+}
+
+@media (max-width: 600px) {
+    .project {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .project .texts {
+        flex: 100%;
+    }
+
+    .project .texts .cta-button {
+        flex: 100%;
+        text-align: center;
+    }
+
+    .project .app-picture {
+        width: 100%;
+    }
+
+    .project.piggy .app-picture {
+        width: 50%;
+    }
+
+    .project.countdown .app-picture, .project.hhh .app-picture, .project.pong .app-picture, .project.portfolio .app-picture {
+        width: 100%;
+    }
+}
