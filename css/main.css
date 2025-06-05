@@ -122,11 +122,12 @@ h1, h2, h3, h4, h5, h6 {
 /* Loading Message */
 
 #loadingMessage {
-    position: absolute; 
-    left: 50%; 
-    transform: translateX(-50%); 
+    display: flex;
+    position: sticky;
+    top: 0;
     
-    opacity: 0; 
+    opacity: 0;
+    justify-content: center;
     text-align: center; 
     
     transition: 300ms;
