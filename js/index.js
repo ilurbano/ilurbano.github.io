@@ -22,7 +22,7 @@ async function animateIntro() {
 
         card.classList.add('zoom-entrance-animation');
 
-        card.addEventListener('animationend', async () => {
+        card.addEventListener('animationend', () => {
             card.style.opacity = 1;
             card.classList.remove('zoom-entrance-animation');
         }, { once: true });
