@@ -50,6 +50,14 @@ async function animateLoadingMessage() {
     loadingMessage.style.opacity = 1;
 }
 
+async function browseTo(href) {
+    hideMenu();
+    var mainPage = document.getElementById('mainPage');
+    mainPage.classList.add('slide-down-fade-out-animation');
+    await sleep(300);
+    window.location.href = href;
+}
+
 async function intro() {
     hideMenu();
     var mainPage = document.getElementById('mainPage');

@@ -12,6 +12,7 @@
 }
 
 .project {
+    scroll-margin-top: calc((64px + 32px) * 2); 
     padding: 32px;
     padding-left: 128px;
     padding-right: 128px;
