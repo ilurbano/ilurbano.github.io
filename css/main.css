@@ -157,6 +157,13 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
 }
 
+.title-bar .title {
+    display: none;
+    margin: 0; 
+    margin-left: 16px;
+    font-size: 1.25rem;
+}
+
 .title-bar > .menu-item, #expandMenu {
     display: inline-flex;
     height: 32px;
@@ -176,7 +183,7 @@ h1, h2, h3, h4, h5, h6 {
     transition: 200ms;
 }
 
-.title-bar > .menu-item:hover, #expandMenu:hover {
+.title-bar > .menu-item:hover, #expandMenu:hover, .title-bar > .menu-item.selected {
     background: color-mix(in srgb, var(--color-on-title-bar-background) 10%, transparent);
 }
 
@@ -300,9 +307,20 @@ h1, h2, h3, h4, h5, h6 {
         justify-content: start;
     }
 
+    .title-bar .title {
+        display: inline;
+    }
+
+    .title-bar > #expandMenu {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
     .title-bar > .menu-item {
         display: none;
         flex: 100%;
+        padding-top: 8px;
+        padding-bottom: 8px;
         justify-content: center;
     }
 }
