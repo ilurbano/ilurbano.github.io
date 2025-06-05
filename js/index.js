@@ -18,7 +18,7 @@ async function animateIntro() {
         
         if (card.id == 'heroCard') continue;
 
-        await sleep(40);
+        await sleep(25);
 
         card.classList.add('zoom-entrance-animation');
 
