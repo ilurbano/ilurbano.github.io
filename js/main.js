@@ -109,3 +109,8 @@ window.addEventListener('resize', () => {
     menusVisible = window.innerWidth > 600;
     updateMenuItems();
 });
+
+window.addEventListener('unload', event => {
+    var mainPage = document.getElementById('mainPage');
+    mainPage.classList.remove('slide-down-fade-out-animation');
+});
