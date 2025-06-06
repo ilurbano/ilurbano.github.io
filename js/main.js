@@ -11,17 +11,34 @@ function sleep(ms) {
 function setTheme(theme) {
     const htmlElement = document.body;
     const themeToggleIcon = document.getElementById('themeToggleIcon');
+    const themeCardIcon = document.getElementById('themeCardIcon');
+    const themeCardTitle = document.getElementById('themeCardTitle');
 
     htmlElement.classList.remove('light', 'dark');
 
     if (theme == 'light') {
         htmlElement.classList.add('light');
-        themeToggleIcon.innerHTML = 'light_mode'
+        themeToggleIcon.innerHTML = 'light_mode';
+
+        if (themeCardIcon != null && themeCardTitle != null) {
+            themeCardIcon.innerHTML = 'light_mode';
+            themeCardTitle.innerHTML = 'Light Mode';
+        }
     } else if (theme == 'dark') {
         htmlElement.classList.add('dark');
         themeToggleIcon.innerHTML = 'dark_mode'
+
+        if (themeCardIcon != null && themeCardTitle != null) {
+            themeCardIcon.innerHTML = 'dark_mode';
+            themeCardTitle.innerHTML = 'Dark Mode';
+        }
     } else if (theme == 'system') {
         themeToggleIcon.innerHTML = 'brightness_auto'
+
+        if (themeCardIcon != null && themeCardTitle != null) {
+            themeCardIcon.innerHTML = 'brightness_auto';
+            themeCardTitle.innerHTML = 'Auto Theme';
+        }
     }
 
     // Save theme to local storage
