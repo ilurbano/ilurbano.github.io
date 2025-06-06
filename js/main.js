@@ -1,7 +1,56 @@
+const THEME_KEY = 'theme';
+
 var menusVisible = false;
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// Theme Mode //
+
+function setTheme(theme) {
+    const htmlElement = document.body;
+    const themeToggleIcon = document.getElementById('themeToggleIcon');
+
+    htmlElement.classList.remove('light', 'dark');
+
+    if (theme == 'light') {
+        htmlElement.classList.add('light');
+        themeToggleIcon.innerHTML = 'light_mode'
+    } else if (theme == 'dark') {
+        htmlElement.classList.add('dark');
+        themeToggleIcon.innerHTML = 'dark_mode'
+    } else if (theme == 'system') {
+        themeToggleIcon.innerHTML = 'brightness_auto'
+    }
+
+    // Save theme to local storage
+
+    localStorage.setItem(THEME_KEY, theme);
+}
+
+function getPreferredTheme() {
+    const storedPreference = localStorage.getItem(THEME_KEY);
+
+    if (storedPreference === 'light' || storedPreference === 'dark' || storedPreference === 'system') {
+        return storedPreference;
+    } else {
+        return 'system';
+    }
+}
+
+function toggleThemes() {
+    let theme = getPreferredTheme();
+
+    if (theme == 'light') {
+        theme = 'dark';
+    } else if (theme == 'dark') {
+        theme = 'system';
+    } else if (theme == 'system') {
+        theme = 'light';
+    }
+
+    setTheme(theme);
 }
 
 function updateMenuItems() {
@@ -105,6 +154,7 @@ function scrollToTop() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    setTheme(getPreferredTheme());
     animateLoadingMessage();
 });
 
