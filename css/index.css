@@ -341,7 +341,7 @@
     height: 100%;
 
     position: relative;
-    font-size: 128px;
+    font-size: 96px;
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -915,5 +915,29 @@
 
     .short-about .right h2 {
         text-align: center;
+    }
+}
+
+@media (min-aspect-ratio: 901/1600) and (max-aspect-ratio: 400/500) and (max-width: 1200px) {
+    .mosaic-card.theme .picture {
+        font-size: 192px;
+    }
+}
+
+@media (min-aspect-ratio: 901/1600) and (max-aspect-ratio: 400/500) and (max-width: 840px) {
+    .mosaic-card.theme .picture {
+        font-size: 128px;
+    }
+}
+
+@media (min-aspect-ratio: 901/1600) and (max-aspect-ratio: 400/500) and (max-width: 600px) {
+    .mosaic-card.theme .picture {
+        font-size: 96px;
+    }
+}
+
+@media (max-aspect-ratio: 900/1600) and (max-width: 600px) {
+    .mosaic-card.theme .picture {
+        font-size: 128px;
     }
 }
