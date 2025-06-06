@@ -40,12 +40,6 @@
     --mosaic-grid-resolution: 16;
 
     --mosaic-card-radius: 16px;
-
-    --color-on-full-image-card: #f0f0f0;
-    --color-on-spotlight-item: #f0f0f0;
-
-    --color-chip-background: #e4e4e4;
-    --color-on-chip-background: #101010;
 }
 
 /* Intro Page */
@@ -78,9 +72,9 @@
 
     opacity: 0;
     border-radius: var(--mosaic-card-radius);
-    background: var(--color-card-background);
+    background: var(--md-sys-color-surface-container);
     text-decoration: none;
-    color: var(--color-on-card-background);
+    color: var(--md-sys-color-on-surface-container);
     overflow: hidden;
 
     transition: 500ms cubic-bezier(0.2, 0.0, 0, 1.0);
@@ -99,7 +93,7 @@
     left: 0;
     z-index: 10;
     opacity: 0;
-    background: var(--color-background);
+    background: var(--md-sys-color-surface);
     transition: 500ms cubic-bezier(0.2, 0.0, 0, 1.0);
 }
 
@@ -138,7 +132,7 @@
     align-items: center;
 
     text-decoration: none;
-    color: var(--color-on-hero-card);
+    color: hsl(0, 0%, 90%);
 }
 
 #heroCard:hover .click-guide {
@@ -149,12 +143,12 @@
     margin: 0;
     font-size: 4rem;
     text-align: center;
+    color: hsl(0, 0%, 95%);
 }
 
 #heroCard .subtitle {
     margin: 0;
     font-size: 2rem;
-    color: color-mix(in srgb, var(--color-on-hero-card) 90%, transparent);
     text-align: center;
 }
 
@@ -166,7 +160,6 @@
 
     opacity: 0;
     text-align: center;
-    color: color-mix(in srgb, var(--color-on-hero-card) 80%, transparent);
 
     transition: opacity 250ms;
 }
@@ -220,7 +213,7 @@
     padding: 16px;
     padding-top: 32px;
     text-align: center;
-    color: var(--color-on-full-image-card);
+    color: hsl(203, 13%, 95%);
 }
 
 /* New Year Countdown Card */
@@ -246,7 +239,7 @@
     padding: 16px;
     padding-top: 32px;
     text-align: center;
-    color: var(--color-on-full-image-card);
+    color: hsl(0, 0%, 95%);
 }
 
 /* Pong: Legends Card */
@@ -272,7 +265,7 @@
     padding: 16px;
     padding-top: 32px;
     text-align: center;
-    color: var(--color-on-full-image-card);
+    color: hsl(0, 0%, 95%);
 }
 
 /* Awards Card */
@@ -446,7 +439,7 @@
     padding: 16px;
     padding-top: 32px;
     text-align: center;
-    color: var(--color-on-full-image-card);
+    color: hsl(354, 8%, 95%);
 }
 
 /* Programming Skills Card */
@@ -496,7 +489,7 @@
 }
 
 #content {
-    background: var(--color-background);
+    background: var(--md-sys-color-surface);
 }
 
 /* Spotlight */
@@ -527,8 +520,8 @@
     position: relative;
 
     border-radius: 16px;
-    background: var(--color-on-spotlight-item);
-    color: var(--color-on-spotlight-item);
+    background: var(--md-sys-color-surface-container);
+    color: hsl(0, 0%, 95%);
     justify-content: center;
     overflow: hidden;
 }
@@ -549,7 +542,10 @@
     margin: 0;
     bottom: 0;
 
-    background-image: linear-gradient(#00000000, #00000080);
+    background-image: linear-gradient(
+        color-mix(in srgb, hsl(0, 0%, 5%) 0%, transparent), 
+        color-mix(in srgb, hsl(0, 0%, 5%) 75%, transparent)
+    );
 
     padding: 16px;
     text-align: center;

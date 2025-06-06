@@ -1,12 +1,3 @@
-:root {
-    --color-chip-background: #e4e4e4;
-    --color-on-chip-background: #101010;
-    --color-chip-active-background: #4CAF50;
-    --color-on-chip-active-background: #f0f0f0;
-
-    --color-timeline: #69947c;
-}
-
 .hero {
     height: 40vh;
 }
@@ -61,18 +52,18 @@
     margin-top: auto;
     margin-bottom: auto;
     border-radius: 32767px;
-    background: var(--color-chip-background);
+    background: var(--md-sys-color-surface-container);
     padding: 0.25em;
     padding-left: 0.5em;
     padding-right: 0.5em;
     font-family: sans-serif;
     font-size: 1rem;
-    color: var(--color-on-chip-background);
+    color: var(--md-sys-color-on-surface-container);
 }
 
 .project .status.active {
-    background: var(--color-chip-active-background);
-    color: var(--color-on-chip-active-background);
+    background: var(--md-sys-color-secondary);
+    color: var(--md-sys-color-on-secondary);
 }
 
 .project .texts h1, .project .texts h2, .project .texts h3, .project .texts h4, .project .texts h5, .project .texts h6 {
