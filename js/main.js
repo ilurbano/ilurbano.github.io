@@ -88,11 +88,6 @@ function animateEntrance() {
     }, { once: true });
 }
 
-function animateExit() {
-    var mainPage = document.getElementById('mainPage');
-    mainPage.classList.add('slide-down-fade-out-animation');
-}
-
 async function animateLoadingMessage() {
     var loadingMessage = document.getElementById('loadingMessage');
     await sleep(3000);
@@ -103,44 +98,35 @@ async function browseTo(href) {
     hideMenu();
     var mainPage = document.getElementById('mainPage');
     mainPage.classList.add('slide-down-fade-out-animation');
-    await sleep(300);
-    window.location.href = href;
+
+    mainPage.addEventListener('animationend', () => {
+        window.location.href = href;
+    }, { once: true });
 }
 
 async function intro() {
     hideMenu();
-    var mainPage = document.getElementById('mainPage');
-    mainPage.classList.add('slide-down-fade-out-animation');
-    await sleep(300);
-    window.location.href = 'index.html';
+    browseTo('index.html');
 }
 
 async function home() {
     hideMenu();
-    animateExit();
-    await sleep(300);
-    window.location.href = 'index.html?skip_intro=true';
+    browseTo('index.html?skip_intro=true');
 }
 
 async function about() {
     hideMenu();
-    animateExit();
-    await sleep(300);
-    window.location.href = 'about.html';
+    browseTo('about.html');
 }
 
 async function projects() {
     hideMenu();
-    animateExit();
-    await sleep(300);
-    window.location.href = 'projects.html';
+    browseTo('projects.html');
 }
 
 async function contact() {
     hideMenu();
-    animateExit();
-    await sleep(300);
-    window.location.href = 'contact.html';
+    browseTo('contact.html');
 }
 
 function scrollToTop() {
@@ -161,6 +147,12 @@ document.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('load', () => {
     var loadingMessage = document.getElementById('loadingMessage');
     loadingMessage.remove();
+});
+
+window.addEventListener('pageshow', persisted => {
+    if (!persisted) return;
+    var mainPage = document.getElementById('mainPage');
+    mainPage.classList.remove('slide-down-fade-out-animation');
 });
 
 window.addEventListener('resize', () => {
