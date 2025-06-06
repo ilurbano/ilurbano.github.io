@@ -33,42 +33,30 @@
 
 .about-section {
     padding: 32px;
-    padding-left: 128px;
-    padding-right: 128px;
+    padding-left: 192px;
+    padding-right: 192px;
     text-align: center;
-}
-
-.about-section > div > .profile-image {
-    display: none;
 }
 
 .about-section .layout {
     display: flex;
+    justify-content: center;
+    align-items: top;
+    gap: 32px;
 }
 
 .about-section .left {
-    display: flex;
-    flex: 30%;
-    padding: 32px;
-    padding-top: 0;
-    justify-content: center;
-    align-items: center;
+    flex: 100%;
 }
 
 .about-section .profile-image {
     width: 100%;
-    aspect-ratio: 1/1;
     border-radius: 32767px;
     overflow: hidden;
     object-fit: cover;
 }
 
 .about-section .right {
-    flex: 70%;
-    padding: 32px;
-    padding-top: 0;
-    flex-direction: column;
-    justify-content: center;
     text-align: justify;
 }
 
@@ -93,10 +81,10 @@
     margin-top: 4px;
 
     border-radius: 32767px;
-    padding: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
     background: var(--md-sys-color-surface-container);
+    padding: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
     font-weight: bold;
     color: var(--md-sys-color-on-surface-container);
 }
@@ -114,7 +102,7 @@
 
 .educational-background .layout {
     display: flex;
-    padding-left: calc(50% - (128px + 16px));
+    padding-left: calc(50% - 128px - 24px);
     flex-direction: column;
     align-items: center;
 }
@@ -242,20 +230,18 @@
     aspect-ratio: 4 / 3;
 }
 
-@media (min-width: 1201px) {
-    .about-section .title {
-        margin-top: 0;
-    }
-}
-
 @media (max-width: 1200px) {
-    .about-section > div > .profile-image {
-        display: block;
+    .about-section .layout {
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .about-section .profile-image {
         width: 50%;
     }
 
-    .about-section .left {
-        display: none;
+    .about-section .title {
+        text-align: center;
     }
 
     .awards img {
@@ -265,22 +251,23 @@
 
 @media (max-width: 840px) {
     .about-section {
-        padding-left: 32;
-        padding-right: 32;
+        padding-left: 128px;
+        padding-right: 128px;
     }
 
-    .about-section .right {
-        padding: 0;
+    .about-section .profile-image {
+        width: 75%;
     }
 }
 
 @media (max-width: 600px) {
-    .about-section > div > .profile-image {
-        width: 75%;
+    .about-section {
+        padding-left: 32px;
+        padding-right: 32px;
     }
-    
+
     .educational-background .layout {
-        padding-left: calc(50% - (128px + 22px));
+        padding-left: calc(50% - 128px - 25px);
     }
 
     .awards img {
