@@ -603,6 +603,8 @@
 
 .short-about {
     padding: 32px;
+    padding-left: 192px;
+    padding-right: 192px;
     text-align: center;
 }
 
@@ -612,12 +614,13 @@
 
 .short-about .layout {
     display: flex;
+    margin-bottom: 32px;
+    gap: 32px;
 }
 
 .short-about .left {
     display: flex;
-    flex: 10%;
-    padding: 32px;
+    flex: 20%;
     padding-top: 0;
     justify-content: center;
     align-items: center;
@@ -634,7 +637,6 @@
 .short-about .right {
     display: flex;
     flex: 60%;
-    padding: 32px;
     padding-top: 0;
     flex-direction: column;
     justify-content: center;
@@ -813,9 +815,9 @@
     }
 
     .short-about {
-        padding: 0;
-        padding-top: 32px;
-        padding-bottom: 32px;
+        padding: 32px;
+        padding-left: 128px;
+        padding-right: 128px;
     }
 
     .short-about .layout {
@@ -867,7 +869,17 @@
         flex: 100%;
     }
 
+    .short-about {
+        padding: 32px;
+        padding-left: auto;
+        padding-right: auto;
+    }
+
     .short-about .profile-image {
         width: 75%;
+    }
+
+    .short-about .right h2 {
+        text-align: center;
     }
 }
