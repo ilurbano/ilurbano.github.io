@@ -731,7 +731,7 @@
 }
 
 @media (min-aspect-ratio: 401/500) and (max-aspect-ratio: 499/400) {
-    .mosaic-card.piggy, .mosaic-card.hhh, .mosaic-card.awards, .mosaic-card.programmer, .mosaic-card.cooking, .mosaic-card.gamer, .mosaic-card.pong, .mosaic-card.programming-skills, .mosaic-card.education, .mosaic-card.recent-award, .mosaic-card.countdown {
+    .mosaic-card.piggy, .mosaic-card.hhh, .mosaic-card.awards, .mosaic-card.programmer, .mosaic-card.cooking, .mosaic-card.gamer, .mosaic-card.pong, .mosaic-card.programming-skills, .mosaic-card.education, .mosaic-card.recent-award, .mosaic-card.countdown, .mosaic-card.theme {
         display: none;
     }
 
