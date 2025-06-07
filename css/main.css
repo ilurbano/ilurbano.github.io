@@ -79,6 +79,16 @@
     animation: zoom-out-fade-out 300ms cubic-bezier(1,0,1,1) forwards;
 }
 
+@keyframes rotate-cw {
+    from {
+        rotate: 0deg;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+}
+
 /* Main Elements */
 
 body {
@@ -102,10 +112,22 @@ h1, h2, h3, h4, h5, h6 {
     top: 0;
     
     opacity: 0;
+    flex-direction: column;
     justify-content: center;
     text-align: center; 
     
     transition: 300ms;
+}
+
+#loadingMessage h1 {
+    margin-left: 0.67em;
+    margin-right: 0.67em;
+}
+
+#loadingMessage .loading-icon {
+    margin: 0;
+    font-size: 4rem;
+    animation: rotate-cw 1000ms linear forwards infinite;
 }
 
 /* Main Page */
