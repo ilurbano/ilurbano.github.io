@@ -4,15 +4,18 @@ async function animateIntro() {
     var heroCard = document.getElementById('heroCard');
 
     heroCard.style.opacity = 1;
+    heroCard.style.pointerEvents = 'none';
     introPage.style.position = 'fixed';
     introPage.style.opacity = 0;
 
     introPage.classList.add('zoom-entrance-animation');
 
-    introPage.addEventListener('animationend', () => {
+    introPage.addEventListener('animationend', async () => {
         introPage.style.position = '';
         introPage.style.opacity = 1;
         introPage.classList.remove('zoom-entrance-animation');
+        await sleep(200);
+        heroCard.style.pointerEvents = '';
     }, { once: true });
 
     for (let i = 0; i < cards.length; i++) {
