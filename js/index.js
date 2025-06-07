@@ -4,11 +4,13 @@ async function animateIntro() {
     var heroCard = document.getElementById('heroCard');
 
     heroCard.style.opacity = 1;
+    introPage.style.position = 'fixed';
     introPage.style.opacity = 0;
 
     introPage.classList.add('zoom-entrance-animation');
 
     introPage.addEventListener('animationend', () => {
+        introPage.style.position = '';
         introPage.style.opacity = 1;
         introPage.classList.remove('zoom-entrance-animation');
     }, { once: true });
