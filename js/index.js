@@ -190,9 +190,11 @@ async function shrinkCardFromFullScreen(cardElement) {
 }
 
 async function jumpTo(card, href) {
+    localStorage.setItem('expandedCardId', card.id);
     expandCardToFullScreen(card);
-    await sleep(300);
-    window.location.href = href;
+    card.addEventListener('transitionend', () => {
+        window.location.href = href;
+    }, { once: true });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -212,6 +214,32 @@ window.addEventListener('load', () => {
         switchToMainPage();
     } else {
         animateIntro();
+    }
+});
+
+window.addEventListener('pageshow', async event => {
+    let expandedCardId = localStorage.getItem('expandedCardId');
+    if (expandedCardId) {
+        let card = document.getElementById(expandedCardId);
+        if (card) {
+            // If coming from bfcache, instantly reset the card
+            if (event.persisted) {
+                card.classList.remove('full');
+                card.style.position = '';
+                card.style.top = '';
+                card.style.left = '';
+                card.style.width = '';
+                card.style.height = '';
+                card.style.margin = '';
+                card.style.padding = '';
+                card.style.boxSizing = '';
+                card.style.zIndex = '';
+            } else {
+                // Otherwise, animate back as usual
+                await sleep(1000);
+                await shrinkCardFromFullScreen(card);
+            }
+        }
     }
 });
 
