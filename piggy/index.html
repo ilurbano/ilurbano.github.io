@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Page Title</title>
+		<title>Piggy</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="css/fredoka.css">
 		<link rel="stylesheet" href="css/index.css">
+		<script src="js/index.js"></script>
 	</head>
-	<body>
+	<body style="position: fixed;">
+		<div id="wipMessage">
+			<div id="wipMessageBackground"></div>
+			<div class="dialog">
+				<img class="image" src="images/piggy_character_transparent.png" alt="">
+				<div class="texts">
+					<h1 class="title">Work in Progress!</h1>
+					<p>Oink oink! Hello there, human friend! 🐷👋</p>
+					<p>It's so lovely to have you here! You've found your way to the <b>super exciting, brand-new web version</b> of your favorite Android app, <b>Piggy</b>!</p>
+					<p>But oink, oink... just a little piggy secret: this web version is <b>currently a work in progress</b>! We're busy little trotters building and polishing it just for you. So please excuse any little oink-ups or missing bits as we continue to sprinkle some magic on it! ✨</p>
+					<p>Thank you for your patience and for being a part of Piggy's journey! We're so excited for you to see what we're cooking up! 💖</p>
+				</div>
+				<div class="buttons">
+					<a class="text-button" href="javascript:history.back()">Go Back</a>
+					<a class="filled-button" href="javascript:hideDialog()">Take a Look</a>
+				</div>
+			</div>
+		</div>
+
 		<div class="hero">
 			<div class="navbar">
 				<a href="#">Home</a>

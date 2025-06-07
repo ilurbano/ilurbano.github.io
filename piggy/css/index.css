@@ -14,6 +14,65 @@ h1, h2, h3, h4, h5, h6 {
     font-family: fredoka;
 }
 
+/* Dialog Message */
+
+#wipMessage {
+    display: flex;
+    width: calc(100% - 64px);
+    height: calc(100% - 64px);
+    position: fixed;
+    z-index: 100;
+    padding: 32px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#wipMessageBackground {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background: #00000080;
+}
+
+#wipMessage .dialog {
+    display: flex;
+    width: 40%;
+    position: relative;
+
+    border-radius: 32px;
+    background: white;
+    padding: 32px;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden auto;
+}
+
+#wipMessage .dialog .image {
+    width: 256px;
+    height: 256px;
+    object-fit: contain;
+}
+
+#wipMessage .dialog .title {
+    text-align: center;
+}
+
+#wipMessage .dialog .buttons {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    gap: 16px;
+}
+
+#wipMessage .dialog .buttons > * {
+    margin: 0;
+}
+
 /* Navbar */
 
 .navbar {
@@ -205,6 +264,10 @@ h1, h2, h3, h4, h5, h6 {
 /* Media Queries */
 
 @media (max-width: 840px) {
+    #wipMessage .dialog {
+        width: 60%;
+    }
+
     .two-column {
         flex-wrap: wrap;
     }
@@ -219,6 +282,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 600px) {
+    #wipMessage .dialog {
+        width: calc(100% - 64px);
+    }
+
+    #wipMessage .dialog .image {
+        width: 192px;
+        height: 192px;
+    }
+
     .column-60, .column-40, .column-50 {
         flex: 100%;
     }
