@@ -34,7 +34,7 @@
 }
 
 .project .statuses {
-    vertical-align: calc(0.5em - (0.5rem + 0.125rem));
+    vertical-align: top;
 }
 
 .project .statuses ul {
@@ -43,7 +43,6 @@
     padding: 0;
     list-style: none;
     list-style-type: none;
-    align-items: center;
     gap: 0.25em;
 }
 
