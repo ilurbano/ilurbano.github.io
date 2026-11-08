@@ -139,6 +139,14 @@
         width: 50%;
     }
 
+    .project.mindgarden .app-picture {
+        width: 50%;
+    }
+
+    .project.mindgarden .app-logo {
+        width: 100%;
+    }
+
     .project.countdown .app-picture, .project.hhh .app-picture, .project.pong .app-picture, .project.portfolio .app-picture {
         width: 100%;
     }
