@@ -89,6 +89,19 @@
     gap: 16px;
 }
 
+.app-logo.mindgarden {
+    width: 384px;
+    height: auto;
+}
+
+.technologies {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+}
+
 @media (max-width: 1200px) {
     .project .layout {
         flex-wrap: wrap;
